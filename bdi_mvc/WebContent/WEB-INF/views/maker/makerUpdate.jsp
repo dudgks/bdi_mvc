@@ -11,38 +11,34 @@
 </c:if>
 <body>
 	<div class="container">
+	<form action="/maker/makerUpdate" method="post">
 		<table class="table table-bordered">
 			<tr>
+				<td>번호</td>
+				<td>${maker.mnum}</td>
+			</tr>
+			<tr>
 				<th>메이커명</th>
-				<td>${maker.mname}</td>
+				<td><input type="text" name="mName" value="${maker.mname}"></td>
 			</tr>
 			<tr>
 				<th>가격</th>
-				<td>${maker.mprice}</td>
+				<td><input type="number" name="mPrice" value="${maker.mprice}"></td>
 			</tr>
 			<tr>
 				<th>수량</th>
-				<td>${maker.mcnt}</td>
-			</tr>
-			<tr>
-				<th>총액</th>
-				<td>${maker.mtotal}</td>
+				<td><input type="number" name="mCnt" value="${maker.mcnt}"></td>
 			</tr>
 			<tr>
 				<th>메이커 설명</th>
-				<td>${maker.mdesc}</td>
+				<td><input type="text" name="mDesc" value="${maker.mdesc}"></td>
 			</tr>
 			<tr>
-				<td colspan="2" style="text-align:center"> 
-					<form action="/maker/makerDelete" method="post">
-					<button type="button" data-page='/maker/makerList' >리스트가기</button>
-					<button type="button" data-page='/maker/makerUpdate?mNum=${maker.mnum}'>메이커수정</button>
-					<button>삭제</button>
-						<input type="hidden" name="mNUm" value="${maker.mnum}">
-					</form>
-				</td>
+				<td colspan="2"><button>메이커수정</button></td>
 			</tr>
 		</table>
+		<input type="hidden" type="number" name="mNum" value="${maker.mnum}">
+	</form>
 	</div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jsp"%>
 <body>
 	<div class="container">
@@ -16,18 +16,26 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${list}" var="m">
+			<c:forEach	items="${list}" var="m">
 				<tr>
 					<td>${m.mnum}</td>
 					<td><a href="/maker/makerView?mNum=${m.mnum}">${m.mname}</a></td>
 					<td>${m.mprice}</td>
 					<td>${m.mcnt}</td>
-					<td>${m.mprice * m.mcnt}</td>
+					<td>${m.mprice*m.mcnt}</td>
 					<td>${m.mdesc}</td>
-				<tr>
-				</c:forEach>
-			</tbody>
+				</tr>
+			</c:forEach>
+			</tbody>	
 		</table>
+		<div>
+			<button onclick="goPage()">메이커등록</button>
+		</div>
 	</div>
+<script>
+	function goPage(){
+		location.href='/views/maker/makerInsert';
+	}
+</script>
 </body>
 </html>

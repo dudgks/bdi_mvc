@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common/common.jsp"%>
 <body>
 	${user}
 	<div class="container">
@@ -19,17 +22,9 @@
 			</tr>
 		</table>
 		<div>
-			<button onclick="goPage()">리스트 이동</button>
+			<button onclick="goPage()" data-page='/user/userList' >리스트 이동</button>
 			<button onclick="goUpdate()">수정</button>
 			</div>
 	</div>
-	<script>
-		function goPage(){
-			location.href="/user/userList";
-		}
-		function goUpdate(){
-			location.href="/user/userUpdate?num=${user.num}";
-		}
-	</script>
 </body>
 </html>

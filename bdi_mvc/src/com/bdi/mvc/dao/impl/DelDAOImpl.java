@@ -21,8 +21,7 @@ public class DelDAOImpl implements DelDAO {
 			String sql = "select * from del";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			List<Map<String, String>> list = 
-					new ArrayList<Map<String,String>>();
+			List<Map<String, String>> list = new ArrayList<Map<String,String>>();
 			while(rs.next()) {
 				Map<String,String> hm = new HashMap<String,String>();
 				hm.put("num",rs.getString("num"));
@@ -84,7 +83,7 @@ public class DelDAOImpl implements DelDAO {
 	public int insertDel(String name, String age) throws SQLException {
 		try {
 			Connection con = DBCon.getCon();
-			String sql = "insert into del(name, age)";
+			String sql = "insert into del(name, age, )";
 			sql += "values(?,?)";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, name);

@@ -11,7 +11,8 @@ import com.bdi.mvc.service.DelService;
 public class DelServiceImpl implements DelService {
 	private DelDAO ddao = new DelDAOImpl();
 	@Override
-	public List<Map<String, String>> getDelList() throws SQLException {
+	
+	public List<Map<String, String>> getUserList() throws SQLException {
 		return ddao.selectDelList();
 	}
 	@Override

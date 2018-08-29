@@ -2,7 +2,6 @@ package com.bdi.mvc.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +26,7 @@ public class UserServlet extends HttpServlet {
 		
 		try {
 			if(cmd.equals("userList")) {
-				List<Map<String, String>> list = ds.getDelList();
+				List<Map<String, String>> list = ds.getUserList();
 				request.setAttribute("list",list);
 				
 			}else if(cmd.equals("userView")) {
@@ -65,7 +64,7 @@ public class UserServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
 		doGet(request, response);
 	}
 

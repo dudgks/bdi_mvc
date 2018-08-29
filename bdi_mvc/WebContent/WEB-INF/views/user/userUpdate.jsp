@@ -3,37 +3,38 @@
 <%@ include file="/WEB-INF/views/common/common.jsp"%>
 <body>
 <div class="container">
-	<table class="table table-bordered">
-		<tr>
-			<th>이름</th>
-			<td><input type="text" id="name" value="${user.name}"></td>
-		</tr>
-		<tr>
-			<th>나이</th>
-			<td><input type="number" id="age" value="${user.age}"></td>
-		</tr>
-		<tr>
-			<th colspan="2"><button onclick="updateDel()">수정</button>
-			<button onclick="goPage()">취소</button></th>
-		</tr>
-	</table>
-</div>
-<script>
-	function updateDel(){
-		var name = document.querySelector("#name").value;
-		var age = document.querySelector("#age").value;
-		location.href='/user/userUpdate?num=${user.num}&name='+name + '&age='+ age;
-	}
-	function goPage(){
-		location.href='/user/userList';
-	}
-	var cnt = '${cnt}';
-	if(cnt==1){
-		alert('수정이 잘 되었습니다.');
-		goPage();
-	}else if(cnt===0){
-		alert('수정에 실패하였습니다.');
-	}
-</script>
+	<form action="/user/userUpdate" method="post">
+		<table class="table table-bordered">
+			<tr>
+				<td>번호</td>
+				<td>${user.num}</td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td><input type="text" name="uiName" value="${user.name}"></td>
+			</tr>
+			<tr>
+				<th>ID</th>
+				<td><input type="text" name="uiId" value="${user.uiId}"></td>
+			</tr>
+			<tr>
+				<th>설명</th>
+				<td><input type="text" name="uidesc" value="${user.uiDesc}"></td>
+			</tr>
+			<tr>
+				<th>나이</th>
+				<td><input type="number" name="uiAge" value="${user.uiAge}"></td>
+			</tr>
+			<tr>
+				<th>부서번호</th>
+				<td><input type="number" name="diNo" value="${user.diNo}"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button>메이커수정</button></td>
+			</tr>
+		</table>
+		<input type="hidden" type="number" name="uiNo" value="${user.num}">
+	</form>
+	</div>
 </body>
 </html>
